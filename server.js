@@ -5,7 +5,7 @@ const tty = require('./tty');
 const log = new LoggingLib({
      category: "Autonode/Server",
      writeToFile: false
-})
+});
 
 /**
  *
@@ -43,7 +43,8 @@ const start = (options) => {
           isReloading = false;
      }, 100);
 
-     fs.watch(folder, (event, filename) => {
+
+     fs.watch(folder, (_event, filename) => {
           if (isReloading) return;
           isReloading = true;
           if (filename.endsWith('.js')) {
@@ -66,7 +67,7 @@ const run = (options) => {
      const node = require('child_process').fork(src);
      log.success(`Node ${src} started`);
      node.on("exit", (code) => {
-          if(code === 0)
+          if (code === 0)
                log.success(`Node ${src} exited with code ${code}`);
           else
                log.error(`Node ${src} exited with code ${code}`);
