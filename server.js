@@ -1,5 +1,11 @@
+const LoggingLib = require('@tymianekpl/LoggingLib');
 const fs = require('fs');
 const tty = require('./tty');
+
+const log = new LoggingLib({
+     category: "Autonode/Server",
+     writeToFile: false
+})
 
 /**
  *
@@ -23,6 +29,7 @@ const start = (options) => {
 
      if (options.tty && !tty.check())
           throw new Error('TTY is not supported');
+
      tty.enable();
 
      let folder;
@@ -40,7 +47,6 @@ const start = (options) => {
           if (isReloading) return;
           isReloading = true;
           if (filename.endsWith('.js')) {
-               console.log(`${filename}: ${event}`);
                setTimeout(() => {
                     run(options);
                     isReloading = false;
@@ -49,15 +55,21 @@ const start = (options) => {
      });
 };
 
+
 const run = (options) => {
      if (typeof options === "undefined")
           throw new Error("No options specified");
      const {src} = options;
 
+     log.info(`Starting node ${src}...`);
      // start node src
      const node = require('child_process').fork(src);
+     log.success(`Node ${src} started`);
      node.on("exit", (code) => {
-          console.log(`Node exited with code ${code}`);
+          if(code === 0)
+               log.success(`Node ${src} exited with code ${code}`);
+          else
+               log.error(`Node ${src} exited with code ${code}`);
      });
 };
 

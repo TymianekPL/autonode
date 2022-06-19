@@ -1,11 +1,17 @@
 #! /usr/bin/env node
 
+const LoggingLib = require('@tymianekpl/LoggingLib');
 const UsageError = require('../UsageError');
 
 const options = {
      src: null,
      tty: true
 };
+
+const log = new LoggingLib({
+     category: "Autonode/Main",
+     writeToFile: false
+});
 
 try {
      // check if package was ran or required
@@ -27,9 +33,9 @@ try {
 
 } catch (err) {
      if (err instanceof UsageError) {
-          console.error(err.message);
-          console.error('Usage: node server.js <source>');
+          log.error(err.message);
+          log.error("Usage: node index.js <source>");
      } else {
-          console.error(err);
+          log.error(err);
      }
 }
