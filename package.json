@@ -4,7 +4,8 @@
   "description": "",
   "main": "bin/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "run": "node bin/index.js",
+    "start": "node bin/index.js"
   },
   "repository": {
     "type": "git",
