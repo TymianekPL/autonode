@@ -3,13 +3,13 @@
 Install with `npm`:
 
 ```npm
-npm install @tymianekpl/autonode --save
+npm install @tymianekpl/autonode -g
 ```
 
 Or with `yarn`:
 
 ```yarn
-yarn add @tymianekpl/autonode
+yarn global add @tymianekpl/autonode
 ```
 
 Autonode is a tool for auto reload of node.js application.
