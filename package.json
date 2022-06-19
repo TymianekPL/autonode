@@ -1,0 +1,29 @@
+{
+  "name": "autonode",
+  "version": "0.0.1",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TymianekPL/autonode.git"
+  },
+  "keywords": [
+    "autonode",
+    "node",
+    "monitor",
+    "cli"
+  ],
+  "author": "TymianekPL",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TymianekPL/autonode/issues"
+  },
+  "homepage": "https://github.com/TymianekPL/autonode#readme",
+  "dependencies": {
+    "@tymianekpl/logginglib": "^1.0.5"
+  },
+  "bin": "bin/index.js"
+}
