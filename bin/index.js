@@ -35,6 +35,7 @@ try {
      if (err instanceof UsageError) {
           log.error(err.message);
           log.error("Usage: node index.js <source>");
+          process.exit(1);
      } else {
           log.error(err);
      }
