@@ -1,5 +1,17 @@
 # autonode
 
+Install with `npm`:
+
+```npm
+npm install @tymianekpl/autonode --save
+```
+
+Or with `yarn`:
+
+```yarn
+yarn add @tymianekpl/autonode
+```
+
 Autonode is a tool for auto reload of node.js application.
 
 It's like nodemon but on steroids.
