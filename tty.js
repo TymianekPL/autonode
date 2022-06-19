@@ -18,8 +18,6 @@ module.exports = {
                if (key === '\u0003') { // if ctrl+c
                     log.info("CTRL+C was pressed, exiting...");
                     process.exit();
-               } else {
-                    writeStream.write(key);
                }
           });
 
